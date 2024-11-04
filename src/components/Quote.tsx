@@ -1,5 +1,5 @@
 'use client'
-
+import { useRouter } from "next/navigation";
 import Image from 'next/image'
 import React, { useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
@@ -13,6 +13,8 @@ const Quote = () => {
     const [Zipcode, setZipcode] = useState("");
     const [message, setMessage] = useState("");
 
+    const router = useRouter();
+
     const handleFormSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -24,7 +26,7 @@ const Quote = () => {
             message
         }
 
-        alert("Submitted");
+        router.push("/ThankYou");
         setPhone("");
         setEmail("");
         setName("");
